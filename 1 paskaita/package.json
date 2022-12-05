@@ -1,0 +1,10 @@
+{
+    "title": "My first program",
+    "version": "0.1",
+    "scripts": {
+        "start": "node index.js"
+    },
+    "dependencies": {
+        "casual": "^1.6.2"
+    }
+}
