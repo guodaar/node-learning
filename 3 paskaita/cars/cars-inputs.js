@@ -6,7 +6,6 @@ const color = document.querySelector("#color");
 const carID = Math.floor(Math.random() * 1000) + 1;
 
 form.addEventListener("submit", (e) => {
-  e.preventDefault();
   saveCar().then((car) => {
     console.log(car);
   });
