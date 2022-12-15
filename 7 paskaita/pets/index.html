@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/water.css@2/out/dark.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <main>
+    <a href="./add.html">Add pet</a>
+    <h1>Pets</h1>
+    <button id="dog-btn">Dog</button>
+    <button id="cat-btn">Cat</button>
+    <button id="bunny-btn">Bunny</button>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th class="sort-age">Age (Asc)</th>
+        </tr>
+      </thead>
+      <tbody class="pets-list"></tbody>
+    </table>
+
+  </main>
+  <script>
+    const allPets = [];
+    const sortAge = document.querySelector('.sort-age');
+    const tbody = document.querySelector(".pets-list");
+
+    async function getPets() {
+      try {
+        const response = await fetch("http://localhost:3000/pets");
+        const data = await response.json();
+        return data;
+      } catch (err) {
+        console.log(err);
+      }
+    }
+
+    getPets().then((pet) => {
+      allPets.push(...pet);
+      drawAllPets(allPets);
+    });
+
+    function drawPet(pet) {
+      const row = document.createElement("tr");
+      const name = document.createElement("td");
+      const type = document.createElement("td");
+      const age = document.createElement("td");
+
+      name.textContent = `${pet.name}`;
+      type.textContent = `${pet.type}`;
+      age.textContent = `${pet.age}`;
+
+      row.appendChild(name);
+      row.appendChild(type);
+      row.appendChild(age);
+      tbody.appendChild(row);
+    }
+
+    function drawAllPets(arr) {
+      tbody.innerHTML = null;
+      arr.forEach((element) => {
+        drawPet(element);
+      });
+    }
+
+    async function getSortedPetsAsc() {
+      try {
+        const response = await fetch("http://localhost:3000/pets?sort=asc");
+        const data = await response.json();
+        return data;
+      } catch (err) {
+        console.log(err);
+      }
+    }
+
+    async function getSortedPetsDesc() {
+      try {
+        const response = await fetch("http://localhost:3000/pets?sort=desc");
+        const data = await response.json();
+        return data;
+      } catch (err) {
+        console.log(err);
+      }
+    }
+
+    sortAge.addEventListener('click', () => {
+      if (sortAge.textContent === 'Age (Asc)') {
+        sortAge.textContent = 'Age (Desc)';
+        getSortedPetsDesc().then((pet) => {
+          const allPetsDesc = [];
+          allPetsDesc.push(...pet);
+          drawAllPets(allPetsDesc);
+        });
+      } else {
+        sortAge.textContent = 'Age (Asc)';
+        getSortedPetsAsc().then((pet) => {
+          const allPetsAsc = [];
+          allPetsAsc.push(...pet);
+          drawAllPets(allPetsAsc);
+        });
+      }
+    })
+
+  </script>
+</body>
+
+</html>

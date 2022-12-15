@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/water.css@2/out/dark.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <main>
+    <a href="./index.html">View pets</a>
+    <h1>Add pet</h1>
+    <form action="">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name">
+      <label for="age">Age:</label>
+      <input type="number" id="age" name="age">
+      <label for="type">Type:</label>
+      <select name="type" id="type">
+        <option value="dog">Dog</option>
+        <option value="cat">Cat</option>
+        <option value="bunny">Bunny</option>
+      </select>
+      <input type="submit" id="submit" value="Add">
+    </form>
+  </main>
+  <script>
+    const form = document.querySelector('form');
+    const name = document.querySelector('#name');
+    const age = document.querySelector('#age');
+    const type = document.querySelector('#type');
+
+    form.addEventListener("submit", (e) => {
+      savePet().then((pet) => {
+        console.log(pet);
+      });
+    });
+
+    async function savePet() {
+      try {
+        const response = await fetch("http://localhost:3000/pets", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: name.value,
+            type: type.value,
+            age: +age.value,
+          }),
+        });
+        const data = await response.json();
+        return data;
+      } catch (err) {
+        console.log(err);
+      }
+    }
+
+  </script>
+</body>
+
+</html>
