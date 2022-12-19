@@ -34,7 +34,7 @@ app.get('/', async (req, res) => {
 
       .collection('cars')
 
-      .find(brand ? { brand } : {})
+      .find(brand ? { $or: [{ brand: { $in: brand.split(',') } }] } : {})
 
       .sort(sort ? { [property]: sort === 'asc' ? 1 : -1 } : {})
 
