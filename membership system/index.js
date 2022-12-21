@@ -63,15 +63,33 @@ app.delete('/memberships/:id', async (req, res) => {
   }
 });
 
-app.get('/users', async (req, res) => {
-  const { order } = req.query;
+app.get('/users/:order', async (req, res) => {
+  const { order } = req.params;
   try {
     const con = await client.connect();
     const data = await con
       .db('memberships')
       .collection('users')
-      .find()
-      .sort(order ? { name: order === 'asc' ? 1 : -1 } : {})
+      .aggregate([
+        {
+          $lookup: {
+            from: 'services',
+            localField: 'service_id',
+            foreignField: '_id',
+            as: 'membership',
+          },
+        },
+        { $unwind: '$membership' },
+        {
+          $project: {
+            name: '$name',
+            surname: '$surname',
+            email: '$email',
+            membership_name: '$membership.name',
+          },
+        },
+        { $sort: { name: order === 'asc' ? 1 : -1 } },
+      ])
       .toArray();
     await con.close();
     res.send(data);
@@ -83,12 +101,13 @@ app.get('/users', async (req, res) => {
 app.post('/users', async (req, res) => {
   try {
     const user = req.body;
+    const serviceId = req.body.service_id;
     const con = await client.connect();
     if (user) {
       const data = await con
         .db('memberships')
         .collection('users')
-        .insertOne(user);
+        .insertOne({ ...user, service_id: ObjectId(serviceId) });
       res.send(data);
     } else {
       res.status(400).send({

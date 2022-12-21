@@ -1,0 +1,61 @@
+body, header, main, section, h1, h2, p, a, button, span, form, input, label {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: rgb(239, 241, 245);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(43, 44, 44);
+}
+
+h1 {
+  font-weight: 300;
+  margin-bottom: 10px;
+}
+
+button {
+  background-color: rgb(115, 129, 218);
+  border: none;
+  border-radius: 3px;
+  padding: 8px 18px;
+  color: white;
+  font-weight: 600;
+  font-size: 0.7rem;
+}
+button span {
+  margin-right: 18px;
+}
+
+header {
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+  padding: 20px;
+}
+header a {
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  color: grey;
+}
+
+.content-wrapper {
+  padding: 20px;
+}
+.content-wrapper .top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.content-wrapper .top p {
+  font-size: 0.8rem;
+}
+
+footer {
+  margin-top: auto;
+}/*# sourceMappingURL=globalstyles.css.map */
