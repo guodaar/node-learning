@@ -6,6 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../styles/globalstyles.css">
+  <script src="https://kit.fontawesome.com/0eb9458fd3.js"
+    crossorigin="anonymous"></script>
   <title>Users</title>
 </head>
 
@@ -15,16 +17,17 @@
     <a href="./user-list.html">Users</a>
   </header>
   <main>
-    <div class="content-wrapper">
-      <section class="top">
-        <h1>User Management</h1>
-        <button class="add-user"><span>+</span>New User</button>
-      </section>
-      <section class="users-wrapper">
+    <section class="top">
+      <h1>User Management</h1>
+      <a href="./user-add.html"><button class="add-user"><span>+</span>New
+          User</button></a>
+    </section>
+    <section class="content-wrapper">
+      <div class="users-wrapper">
         <p class="sort">Sorting By Name: <span id="sort-type"></span></p>
         <div class="users-container"></div>
-      </section>
-    </div>
+      </div>
+    </section>
   </main>
   <footer>
     <p>Copyright @2021 Membership Manager</p>

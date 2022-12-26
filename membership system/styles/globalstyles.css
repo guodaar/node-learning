@@ -1,4 +1,4 @@
-body, header, main, section, h1, h2, p, a, button, span, form, input, label {
+body, header, main, section, h1, h2, p, a, button, span, form, input, label, textarea, i {
   margin: 0;
   padding: 0;
 }
@@ -25,9 +25,23 @@ button {
   color: white;
   font-weight: 600;
   font-size: 0.7rem;
+  cursor: pointer;
 }
 button span {
   margin-right: 18px;
+}
+
+button:hover {
+  background-color: rgb(146, 158, 235);
+}
+
+#cancel {
+  background-color: white;
+  color: rgb(43, 44, 44);
+}
+
+#cancel:hover {
+  color: rgb(90, 90, 90);
 }
 
 header {
@@ -36,6 +50,7 @@ header {
   justify-content: center;
   gap: 100px;
   padding: 20px;
+  box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
 }
 header a {
   font-weight: 600;
@@ -43,19 +58,108 @@ header a {
   text-decoration: none;
   color: grey;
 }
-
-.content-wrapper {
-  padding: 20px;
+header a:hover {
+  color: rgb(97, 97, 97);
 }
-.content-wrapper .top {
+
+main {
+  padding: 20px 10vw;
+}
+main .top {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
 }
-.content-wrapper .top p {
+main .top p {
   font-size: 0.8rem;
+}
+main .content-wrapper {
+  background-color: white;
+  border: 0.5px solid rgb(225, 225, 225);
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
+  padding: 20px;
+}
+main .content-wrapper form label {
+  font-weight: 600;
+  font-size: 0.8rem;
+  color: rgb(43, 44, 44);
+  text-transform: capitalize;
+}
+main .content-wrapper form input, main .content-wrapper form textarea, main .content-wrapper form select {
+  min-height: 30px;
+  border: none;
+  border-radius: 3px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+  padding-left: 20px;
+}
+main .content-wrapper form input::-moz-placeholder {
+  font-size: 0.8rem;
+  color: rgb(170, 170, 170);
+}
+main .content-wrapper form input:-ms-input-placeholder {
+  font-size: 0.8rem;
+  color: rgb(170, 170, 170);
+}
+main .content-wrapper form input::placeholder {
+  font-size: 0.8rem;
+  color: rgb(170, 170, 170);
+}
+main .content-wrapper .services-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+main .content-wrapper .services-form .inputs-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+main .content-wrapper .services-form .input-wrap {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 20px;
+}
+main .content-wrapper .services-form .input-wrap input, main .content-wrapper .services-form .input-wrap textarea {
+  width: 400px;
+}
+main .content-wrapper .users-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+main .content-wrapper .users-form .inputs-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  row-gap: 25px;
+  -moz-column-gap: 20px;
+       column-gap: 20px;
+}
+main .content-wrapper .users-form .inputs-container .input-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+main .content-wrapper .users-form .inputs-container .input-wrap i {
+  color: rgb(244, 98, 45);
+  font-size: 0.4rem;
+}
+main .content-wrapper .users-form .inputs-container .select-service {
+  grid-row: 3/4;
+  grid-column: 1/2;
+  justify-self: start;
+}
+main .content-wrapper .users-form .buttons {
+  display: flex;
+  justify-content: center;
 }
 
 footer {
   margin-top: auto;
+  font-size: 0.8rem;
+  text-align: center;
+  padding-bottom: 20px;
 }/*# sourceMappingURL=globalstyles.css.map */

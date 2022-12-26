@@ -6,6 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../styles/globalstyles.css">
+  <script src="https://kit.fontawesome.com/0eb9458fd3.js"
+    crossorigin="anonymous"></script>
   <title>Users</title>
 </head>
 
@@ -15,36 +17,43 @@
     <a href="./user-list.html">Users</a>
   </header>
   <main>
-    <div class="content-wrapper">
-      <section class="top">
-        <h1>Create User</h1>
-      </section>
-      <section class="users-form">
-        <form action="POST">
-          <div class="user-name">
-            <label for="name">First Name:</label>
-            <input type="text" name="name" id="name">
+    <section class="top">
+      <h1>Create User</h1>
+    </section>
+    <section class="content-wrapper">
+      <form action="POST" class="users-form">
+        <div class="inputs-container">
+          <div class="user-name input-wrap">
+            <label for="name">First Name <i
+                class="fa-solid fa-star-of-life"></i></label>
+            <input type="text" name="name" id="name" placeholder="First Name"
+              required>
           </div>
-          <div class="user-surname">
-            <label for="surname">Last Name:</label>
-            <input type="text" name="surname" id="surname" required>
+          <div class="user-surname input-wrap">
+            <label for="surname">Last Name <i
+                class="fa-solid fa-star-of-life"></i></label>
+            <input type="text" name="surname" id="surname"
+              placeholder="Last Name" required>
           </div>
-          <div class="user-email">
-            <label for="email">Email Address:</label>
-            <input type="email" name="email" id="email" required>
+          <div class="user-email input-wrap">
+            <label for="email">Email Address <i
+                class="fa-solid fa-star-of-life"></i></label>
+            <input type="email" name="email" id="email"
+              placeholder="Email Address" required>
           </div>
-          <div class="select-service">
+          <div class="select-service input-wrap">
             <label for="service">Change Membership:</label>
             <select name="service" id="service" required>
             </select>
           </div>
-          <div class="buttons">
-            <button class="cancel">Cancel</button>
-            <button class="save">New User</button>
-          </div>
-        </form>
-      </section>
-    </div>
+        </div>
+        <div class="buttons">
+          <button id="cancel">Cancel</button>
+          <button id="save">New User</button>
+        </div>
+      </form>
+    </section>
+
   </main>
   <footer>
     <p>Copyright @2021 Membership Manager</p>

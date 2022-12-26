@@ -6,6 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../styles/globalstyles.css">
+  <script src="https://kit.fontawesome.com/0eb9458fd3.js"
+    crossorigin="anonymous"></script>
   <title>Memberships</title>
 </head>
 
@@ -15,32 +17,33 @@
     <a href="./user-list.html">Users</a>
   </header>
   <main>
-    <div class="content-wrapper">
-      <section class="top">
-        <h1>Create Membership</h1>
-      </section>
-      <section class="services-form">
-        <form action="POST">
-          <div class="service-name">
-            <label for="name">Name:</label>
-            <input type="text" name="name" id="name">
+    <section class="top">
+      <h1>Create Membership</h1>
+    </section>
+    <section class="content-wrapper">
+      <form action="POST" class="services-form">
+        <div class="inputs-container">
+          <div class="service-name input-wrap">
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name" placeholder="Name">
           </div>
-          <div class="service-price">
-            <label for="price">Membership price:</label>
-            <input type="number" name="price" id="price">
+          <div class="service-price input-wrap">
+            <label for="price">Membership price</label>
+            <input type="number" name="price" id="price"
+              placeholder="Membership Price">
           </div>
-          <div class="service-desc">
-            <label for="description">Description:</label>
-            <textarea name="description" id="description" rows="7"
-              cols="50"></textarea>
+          <div class="service-desc input-wrap">
+            <label for="description">Description</label>
+            <textarea name="description" id="description" rows="8"></textarea>
           </div>
-          <div class="buttons">
-            <button class="cancel">Cancel</button>
-            <button class="save">New Membership</button>
-          </div>
-        </form>
-      </section>
-    </div>
+        </div>
+
+        <div class="buttons">
+          <button id="cancel">Cancel</button>
+          <button id="save">New Membership</button>
+        </div>
+      </form>
+    </section>
   </main>
   <footer>
     <p>Copyright @2021 Membership Manager</p>
