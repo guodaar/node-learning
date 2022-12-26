@@ -61,6 +61,12 @@ header a {
 header a:hover {
   color: rgb(97, 97, 97);
 }
+header .current {
+  color: rgb(115, 129, 218);
+}
+header .current:hover {
+  color: rgb(95, 109, 200);
+}
 
 main {
   padding: 20px 10vw;
