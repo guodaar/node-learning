@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="../styles/globalstyles.css">
   <script src="https://kit.fontawesome.com/0eb9458fd3.js"
     crossorigin="anonymous"></script>
+  <script defer src="../script/membership-add.js"></script>
   <title>Memberships</title>
 </head>
 
@@ -17,33 +18,31 @@
     <a href="./user-list.html">Users</a>
   </header>
   <main>
-    <section class="top">
+    <div class="top">
       <h1>Create Membership</h1>
-    </section>
-    <section class="content-wrapper">
-      <form action="POST" class="services-form">
-        <div class="inputs-container">
-          <div class="service-name input-wrap">
-            <label for="name">Name</label>
-            <input type="text" name="name" id="name" placeholder="Name">
-          </div>
-          <div class="service-price input-wrap">
-            <label for="price">Membership price</label>
-            <input type="number" name="price" id="price"
-              placeholder="Membership Price">
-          </div>
-          <div class="service-desc input-wrap">
-            <label for="description">Description</label>
-            <textarea name="description" id="description" rows="8"></textarea>
-          </div>
+    </div>
+    <form action="" class="services-form">
+      <div class="inputs-container">
+        <div class="service-name input-wrap">
+          <label for="name">Name</label>
+          <input type="text" name="name" id="name" placeholder="Name">
         </div>
+        <div class="service-price input-wrap">
+          <label for="price">Membership price</label>
+          <input type="number" name="price" id="price" min="0" step="0.01"
+            placeholder="Membership Price">
+        </div>
+        <div class="service-desc input-wrap">
+          <label for="description">Description</label>
+          <textarea name="description" id="description" rows="8"></textarea>
+        </div>
+      </div>
 
-        <div class="buttons">
-          <button id="cancel">Cancel</button>
-          <button id="save">New Membership</button>
-        </div>
-      </form>
-    </section>
+      <div class="buttons">
+        <button id="cancel">Cancel</button>
+        <button type="submit" id="save">New Membership</button>
+      </div>
+    </form>
   </main>
   <footer>
     <p>Copyright @2021 Membership Manager</p>

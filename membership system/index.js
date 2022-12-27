@@ -19,6 +19,7 @@ app.get('/memberships', async (req, res) => {
       .db('memberships')
       .collection('services')
       .find()
+      .sort({ price: 1 })
       .toArray();
     await con.close();
     res.send(data);

@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="../styles/globalstyles.css">
   <script src="https://kit.fontawesome.com/0eb9458fd3.js"
     crossorigin="anonymous"></script>
+  <script defer src="../script/user-add.js"></script>
   <title>Users</title>
 </head>
 
@@ -17,43 +18,40 @@
     <a href="./user-list.html" class="current">Users</a>
   </header>
   <main>
-    <section class="top">
+    <div class="top">
       <h1>Create User</h1>
-    </section>
-    <section class="content-wrapper">
-      <form action="POST" class="users-form">
-        <div class="inputs-container">
-          <div class="user-name input-wrap">
-            <label for="name">First Name <i
-                class="fa-solid fa-star-of-life"></i></label>
-            <input type="text" name="name" id="name" placeholder="First Name"
-              required>
-          </div>
-          <div class="user-surname input-wrap">
-            <label for="surname">Last Name <i
-                class="fa-solid fa-star-of-life"></i></label>
-            <input type="text" name="surname" id="surname"
-              placeholder="Last Name" required>
-          </div>
-          <div class="user-email input-wrap">
-            <label for="email">Email Address <i
-                class="fa-solid fa-star-of-life"></i></label>
-            <input type="email" name="email" id="email"
-              placeholder="Email Address" required>
-          </div>
-          <div class="select-service input-wrap">
-            <label for="service">Change Membership:</label>
-            <select name="service" id="service" required>
-            </select>
-          </div>
+    </div>
+    <form action="" class="users-form">
+      <div class="inputs-container">
+        <div class="user-name input-wrap">
+          <label for="name">First Name <i
+              class="fa-solid fa-star-of-life"></i></label>
+          <input type="text" name="name" id="name" placeholder="First Name"
+            required>
         </div>
-        <div class="buttons">
-          <button id="cancel">Cancel</button>
-          <button id="save">New User</button>
+        <div class="user-surname input-wrap">
+          <label for="surname">Last Name <i
+              class="fa-solid fa-star-of-life"></i></label>
+          <input type="text" name="surname" id="surname" placeholder="Last Name"
+            required>
         </div>
-      </form>
-    </section>
-
+        <div class="user-email input-wrap">
+          <label for="email">Email Address <i
+              class="fa-solid fa-star-of-life"></i></label>
+          <input type="email" name="email" id="email"
+            placeholder="Email Address" required>
+        </div>
+        <div class="select-service input-wrap">
+          <label for="service">Change Membership:</label>
+          <select name="service" id="service" required>
+          </select>
+        </div>
+      </div>
+      <div class="buttons">
+        <button id="cancel">Cancel</button>
+        <button type="submit" id="save">New User</button>
+      </div>
+    </form>
   </main>
   <footer>
     <p>Copyright @2021 Membership Manager</p>

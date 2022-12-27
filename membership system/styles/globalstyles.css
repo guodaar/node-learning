@@ -1,4 +1,4 @@
-body, header, main, section, h1, h2, p, a, button, span, form, input, label, textarea, i {
+body, header, main, section, h1, h2, h3, p, a, button, span, form, input, label, textarea, i {
   margin: 0;
   padding: 0;
 }
@@ -13,8 +13,26 @@ body {
 }
 
 h1 {
+  font-size: 1.5rem;
   font-weight: 300;
   margin-bottom: 10px;
+}
+
+h2 {
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+h3 {
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+  color: rgb(137, 137, 137);
+}
+
+p {
+  font-size: 0.8rem;
 }
 
 button {
@@ -26,6 +44,7 @@ button {
   font-weight: 600;
   font-size: 0.7rem;
   cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
 }
 button span {
   margin-right: 18px;
@@ -75,68 +94,69 @@ main .top {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
+  margin-bottom: 30px;
 }
 main .top p {
   font-size: 0.8rem;
 }
-main .content-wrapper {
+main form {
   background-color: white;
-  border: 0.5px solid rgb(225, 225, 225);
+  border: 0.5px solid rgb(236, 236, 236);
   border-radius: 5px;
   box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
   padding: 20px;
 }
-main .content-wrapper form label {
+main form label {
   font-weight: 600;
   font-size: 0.8rem;
   color: rgb(43, 44, 44);
   text-transform: capitalize;
 }
-main .content-wrapper form input, main .content-wrapper form textarea, main .content-wrapper form select {
+main form input, main form textarea, main form select {
   min-height: 30px;
   border: none;
   border-radius: 3px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
-  padding-left: 20px;
+  padding: 5px 20px;
 }
-main .content-wrapper form input::-moz-placeholder {
+main form input::-moz-placeholder {
   font-size: 0.8rem;
   color: rgb(170, 170, 170);
 }
-main .content-wrapper form input:-ms-input-placeholder {
+main form input:-ms-input-placeholder {
   font-size: 0.8rem;
   color: rgb(170, 170, 170);
 }
-main .content-wrapper form input::placeholder {
+main form input::placeholder {
   font-size: 0.8rem;
   color: rgb(170, 170, 170);
 }
-main .content-wrapper .services-form {
+main .services-form {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 20px;
 }
-main .content-wrapper .services-form .inputs-container {
+main .services-form .inputs-container {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
-main .content-wrapper .services-form .input-wrap {
+main .services-form .input-wrap {
   display: flex;
   justify-content: flex-end;
   align-items: center;
   gap: 20px;
 }
-main .content-wrapper .services-form .input-wrap input, main .content-wrapper .services-form .input-wrap textarea {
+main .services-form .input-wrap input, main .services-form .input-wrap textarea {
   width: 400px;
 }
-main .content-wrapper .users-form {
+main .users-form {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
-main .content-wrapper .users-form .inputs-container {
+main .users-form .inputs-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
@@ -144,23 +164,91 @@ main .content-wrapper .users-form .inputs-container {
   -moz-column-gap: 20px;
        column-gap: 20px;
 }
-main .content-wrapper .users-form .inputs-container .input-wrap {
+main .users-form .inputs-container .input-wrap {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
-main .content-wrapper .users-form .inputs-container .input-wrap i {
+main .users-form .inputs-container .input-wrap i {
   color: rgb(244, 98, 45);
   font-size: 0.4rem;
 }
-main .content-wrapper .users-form .inputs-container .select-service {
+main .users-form .inputs-container .select-service {
   grid-row: 3/4;
   grid-column: 1/2;
   justify-self: start;
 }
-main .content-wrapper .users-form .buttons {
+main .users-form .buttons {
   display: flex;
   justify-content: center;
+}
+main .services-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: repeat(auto-fill, 150px) 150px;
+  gap: 20px;
+}
+main .services-container .service-card {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border: 0.5px solid rgb(236, 236, 236);
+  border-radius: 2px;
+  box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
+}
+main .services-container .service-card .title-container {
+  margin: 20px;
+  text-align: center;
+}
+main .services-container .service-card .btn-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  border-top: 0.5px solid rgb(236, 236, 236);
+  margin-top: auto;
+}
+main .services-container .service-card .btn-container #delete-btn {
+  background-color: rgb(249, 230, 233);
+  border-radius: 2px;
+  color: rgb(255, 92, 92);
+  font-size: 0.8rem;
+  padding: 6px 8px;
+  margin: 15px;
+}
+main .services-container .service-card .btn-container #delete-btn:hover {
+  background-color: rgb(250, 202, 210);
+  color: red;
+}
+main .users-wrapper .sort {
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 20px;
+}
+main .users-wrapper .sort i {
+  color: rgb(95, 109, 200);
+  margin-left: 30px;
+}
+main .users-wrapper .sort i:hover {
+  color: rgb(146, 158, 235);
+}
+main .users-wrapper .users-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: repeat(auto-fill, 150px) 150px;
+  gap: 20px;
+}
+main .users-wrapper .users-container .user-card {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  background-color: white;
+  border: 0.5px solid rgb(236, 236, 236);
+  border-radius: 2px;
+  box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
+}
+main .users-wrapper .users-container .user-card span {
+  color: rgb(95, 109, 200);
 }
 
 footer {
